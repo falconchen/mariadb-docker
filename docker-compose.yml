@@ -8,6 +8,6 @@ services:
     env_file:
       - .env
     volumes:
-      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_DATA_DIR:./data}:/var/lib/mysql
     ports:
       - ${MYSQL_ADDR_PORT:-3306}:3306
