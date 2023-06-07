@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db:
+    container_name: mariadb
+    command: --max_allowed_packet=256M
+    image: mariadb:10.5.9
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+    ports:
+      - ${MYSQL_ADDR_PORT:-3306}:3306
